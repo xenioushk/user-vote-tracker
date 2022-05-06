@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: User Vote Tracker - Pro Voting Addon\n"
+"POT-Creation-Date: 2018-09-01 15:52+0600\n"
+"PO-Revision-Date: 2018-09-01 15:52+0600\n"
+"Last-Translator: \n"
+"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__;_n\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../admin/class-uvt-addon-admin.php:126
+#: ../admin/class-uvt-addon-admin.php:127
+msgid "My Votes"
+msgstr ""
+
+#: ../admin/class-uvt-addon-admin.php:279
+msgid "Dislike"
+msgstr ""
+
+#: ../admin/class-uvt-addon-admin.php:279
+msgid "Like"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:18
+msgid "My Voting Report:"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:31
+msgid "Post Types:"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:34
+#: ../admin/includes/view-user-voting-report.php:54
+#: ../admin/includes/view-user-voting-report.php:61
+msgid "Select"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:51
+msgid "Posts:"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:58
+msgid "Filter Type:"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:62
+msgid "Only Likes"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:63
+msgid "Only Dislikes"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:69
+msgid "Info Type:"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:72
+msgid "Summary"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:73
+msgid "Details"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:77
+msgid "Custom Date Range :"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:87
+msgid "Generate Report"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:101
+msgid "Post Title"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:102
+msgid "Post Type"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:103
+msgid "Vote Date"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:104
+msgid "Vote Type"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:105
+msgid "Votes"
+msgstr ""
+
+#: ../admin/includes/view-user-voting-report.php:106
+msgid "Action"
+msgstr ""
+
+#: ../public/class-uvt-addon.php:444
+#: ../widgets/user-vote-tracker-widget.php:66
+msgid "Disliked"
+msgstr ""
+
+#: ../public/class-uvt-addon.php:444
+#: ../widgets/user-vote-tracker-widget.php:65
+msgid "Liked"
+msgstr ""
+
+#: ../public/class-uvt-addon.php:455
+msgid "On"
+msgstr ""
+
+#: ../public/class-uvt-addon.php:465
+msgid "Sorry, No Result Found !"
+msgstr ""
+
+#: ../public/class-uvt-addon.php:478
+msgid "Previous"
+msgstr ""
+
+#: ../public/class-uvt-addon.php:482
+msgid "Next"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:24
+msgid "User Vote Tracker Widget"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:27
+msgid "Display recent up/down voted items in sidebar area."
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:36
+msgid "Recent Voted Posts"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:52
+msgid "Title"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:62
+msgid "Order Type:"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:64
+msgid "All"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:72
+msgid "No Of Posts"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:82
+msgid "Display Pagination"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:90
+msgid "Hide Meta Information"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:98
+msgid "Enable Global Mode"
+msgstr ""
+
+#: ../widgets/user-vote-tracker-widget.php:102
+msgid "Display recent liked/disliked votes by all the voters."
+msgstr ""
