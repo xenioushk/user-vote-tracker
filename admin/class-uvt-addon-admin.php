@@ -280,6 +280,7 @@ class BPVM_UVT_Admin
 
                 $row_id = $vote_data['ID']; // auto incremental ID.
                 $post_title = $vote_data['post_title'];
+                $post_permalink = get_the_permalink($row_id);
                 $post_type = $vote_data['post_type'];
                 $user_id = $vote_data['postid'];
                 $vote_type = $vote_data['vote_type'];
@@ -290,7 +291,7 @@ class BPVM_UVT_Admin
 
                 array_push($bpvm_full_vote_data, array(
                     //                    ( $mv_vote_info_type == 2 ) ? '<input type="checkbox"  class="deleteRow" value="' . $row_id . '" data-post_id="' . $user_id . '" data-votes="' . $votes . '" data-vote_type="' . $vote_type . '" data-vote_date="' . $vote_date . '"/>' : '-',
-                    $post_title,
+                    "<a href='{$post_permalink}' target='_blank'>" . $post_title . "</a>",
                     $post_type,
                     $vote_date,
                     ($vote_type == 2) ? __('Dislike', 'bwl-pro-voting-manager') : __('Like', 'bwl-pro-voting-manager'),
