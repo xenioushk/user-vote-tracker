@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 10, 2015, 5:54:02 AM
+    Author     : BlueWindLab
+*/
+
+.bwl_pvm_container {
+  direction: rtl;
+  unicode-bidi: embed;
+  text-align: right;
+
+  width: 100%;
+  border-bottom: #eeeeee 1px solid;
+  border-top: #eeeeee 1px solid;
+  display: block;
+  float: right;
+  margin: 12px 0;
+  padding: 5px 0;
+}
+
+.pvm_btn_container {
+  float: right;
+}
+
+.pvm_btn_container .btn_like,
+.pvm_btn_container .btn_dislike {
+  float: right;
+}
+
+.pvm_btn_container .btn_like {
+  margin-right: 0px;
+}
+
+.bwl_pvm_container .stat-cnt {
+  float: left;
+}
+
+/*------------------------------ Feedback From Element ---------------------------------*/
+
+section.bwl-pro-voting-feedback-form-container {
+  direction: rtl;
+  unicode-bidi: embed;
+  text-align: right;
+  clear: right;
+}
+
+section.bwl-pro-voting-feedback-form-container p.pvm_feedback_submit_container {
+  text-align: right;
+}
+
+/*-- WooCommerce Support --*/
+
+section.woo_pvm_theme .stat-cnt {
+  clear: left;
+}
+
+section.woo_pvm_theme .like-count-container,
+section.woo_pvm_theme .dislike-count-container {
+  float: left;
+  padding-left: 0;
+}
+
+section.woo_pvm_theme .total-vote-counter {
+  text-align: left;
+}
+
+section.woo_pvm_theme .like-count-container {
+  padding-left: 8px;
+}

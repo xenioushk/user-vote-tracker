@@ -40,7 +40,7 @@ class BPVM_UVT
 
     public function include_files()
     {
-        require_once(BPVM_UVT_DIR . 'widgets/user-vote-tracker-widget.php');
+        require_once(BPVM_UVT_DIR . 'includes/widgets/user-vote-tracker-widget.php');
     }
 
     public function uvt_create_custom_column()
@@ -234,7 +234,7 @@ class BPVM_UVT
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style($this->plugin_slug . '-plugin-styles', plugins_url('assets/css/public.css', __FILE__), array(), self::VERSION);
+        wp_enqueue_style($this->plugin_slug . '-frontend', BPVM_UVT_ADDON_DIR . 'assets/styles/frontend.css', [], self::VERSION);
     }
 
     /**
@@ -244,7 +244,7 @@ class BPVM_UVT
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script($this->plugin_slug . '-plugin-script', plugins_url('assets/js/public.js', __FILE__), array('jquery'), self::VERSION);
+        wp_enqueue_script($this->plugin_slug . '-frontend', BPVM_UVT_ADDON_DIR . 'assets/scripts/frontend.js', ['jquery'], self::VERSION);
     }
 
     public function uvt_get_data($start = 0, $filter = "all", $limit = 5, $pagination = 1, $meta = 0, $global_mode = 0)
@@ -290,7 +290,7 @@ class BPVM_UVT
         $uvt_filter_start_date = ""; // Starting date of filter.
         $uvt_filter_end_date = ""; // Ending date of filter.
 
-        $vars = array();
+        $vars = [];
 
         $bpvm_selected_columns = "{$bpvm_voting_data_table}.postid,{$bpvm_voting_data_table}.vote_type,{$bpvm_voting_data_table}.votes, {$bpvm_voting_data_table}.vote_date AS vote_date_time,DATE({$bpvm_voting_data_table}.vote_date) as vote_date, {$bpvm_posts_data_table}.post_title ";
 

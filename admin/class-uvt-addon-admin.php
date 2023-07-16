@@ -1,6 +1,7 @@
 <?php
 
-class BPVM_UVT_Admin {
+class BPVM_UVT_Admin
+{
 
     /**
      * Instance of this class.
@@ -10,6 +11,8 @@ class BPVM_UVT_Admin {
      * @var      object
      */
     protected static $instance = null;
+
+    public $plugin_slug;
 
     /**
      * Slug of the plugin screen.
@@ -26,30 +29,32 @@ class BPVM_UVT_Admin {
      *
      * @since     1.0.0
      */
-    private function __construct() {
+    private function __construct()
+    {
 
-        //@Description: First we need to check if KB Plugin & WooCommerce is activated or not. If not then we display a message and return false.
+        //@Description: First we need to check if Pro Voting Manager Plugin & WooCommerce is activated or not. If not then we display a message and return false.
         //@Since: Version 1.0.5
-        
-        if( ! class_exists( 'BWL_Pro_Voting_Manager' ) || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION < '1.1.4' ) {
+
+        if (!class_exists('BWL_Pro_Voting_Manager') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION < '1.1.4') {
             add_action('admin_notices', array($this, 'uvt_version_update_admin_notice'));
             return false;
         }
-        
+
         // Start Plugin Admin Panel Code.
-        
+
         $plugin = BPVM_UVT::get_instance();
         $this->plugin_slug = $plugin->get_plugin_slug();
-        
-        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-        
-        add_action('admin_menu', array($this, 'bkb_welcome_submenu'));
-        
+
+        $this->includeFiles();
+
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
+
+        add_action('admin_menu', array($this, 'uvtDisplaySubmenu'));
+
         add_action('wp_ajax_uvt_voting_stats', array($this, 'uvt_voting_stats'));
-        
+
         add_shortcode('uvt_report', array($this, 'uvt_report'));
-        
     }
 
     /**
@@ -59,7 +64,8 @@ class BPVM_UVT_Admin {
      *
      * @return    object    A single instance of this class.
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
 
         /*
          * @TODO :
@@ -78,81 +84,102 @@ class BPVM_UVT_Admin {
         return self::$instance;
     }
 
-        /**
-         * Register and enqueues public-facing JavaScript files.
-         *
-         * @since    1.0.0
-         */
-        public function enqueue_admin_styles() {
-      
-                wp_register_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/uvt-admin-style.css', __FILE__ ), array(), BPVM_UVT::VERSION ); 
+    /**
+     * Register and enqueues public-facing JavaScript files.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_admin_styles()
+    {
 
-        }
-        
-        /**
-         * Register and enqueues public-facing JavaScript files.
-         *
-         * @since    1.0.0
-         */
-        public function enqueue_scripts() {
-            
-            wp_register_script($this->plugin_slug . '-admin-custom-script', plugins_url('assets/js/uvt-admin-scripts.js', __FILE__), array('jquery'), BPVM_UVT::VERSION, TRUE);
-            
-        }
-
-        //Version Manager:  Update Checking
-
-    public function uvt_version_update_admin_notice() {
-
-        echo '<div class="updated"><p>You need to download & install '
-                . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank"> BWL Pro Voting Manager (Minimum Version 1.1.4)</a></b> '
-                . 'to use '.BPVM_UVT_ADDON_TITLE.'.</p></div>';
+        wp_register_style($this->plugin_slug . '-admin', BPVM_UVT_ADDON_DIR . 'assets/styles/admin.css', [], BPVM_UVT::VERSION);
     }
-    
-    function bkb_welcome_submenu() {
-        
-        add_submenu_page(
-                'users.php', 
-                __('My Votes', 'bpvm_uvt'),
-                __('My Votes', 'bpvm_uvt'), 
-                'read', 
-                'bpvm-my-votes', 
-                array($this, 'cb_bpvm_my_votes')
+
+    /**
+     * Register and enqueues public-facing JavaScript files.
+     *
+     * @since    1.0.0
+     */
+    public function enqueue_scripts()
+    {
+
+        wp_register_script($this->plugin_slug . '-admin', BPVM_UVT_ADDON_DIR . 'assets/scripts/admin.js', ['jquery'], BPVM_UVT::VERSION, TRUE);
+        wp_localize_script(
+            $this->plugin_slug . '-admin',
+            'uvtBpvmAdminData',
+            [
+                'product_id' => 18480330,
+                'installation' => get_option('uvt_bpvm_installation')
+            ]
         );
     }
 
-    function cb_bpvm_my_votes() {
-        
-        echo do_shortcode('[uvt_report]');
-        
+    //Version Manager:  Update Checking
+
+    public function uvt_version_update_admin_notice()
+    {
+
+        echo '<div class="updated"><p>You need to download & install '
+            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank"> BWL Pro Voting Manager (Minimum Version 1.1.4)</a></b> '
+            . 'to use ' . BPVM_UVT_ADDON_TITLE . '.</p></div>';
     }
-    
-    function uvt_report() {
-        
-        wp_enqueue_style( $this->plugin_slug .'-admin-styles' );
+
+    function uvtDisplaySubmenu()
+    {
+
+        add_submenu_page(
+            'users.php',
+            __('My Votes', 'bpvm_uvt'),
+            __('My Votes', 'bpvm_uvt'),
+            'read',
+            'bpvm-my-votes',
+            array($this, 'cb_bpvm_my_votes')
+        );
+    }
+
+    function includeFiles()
+    {
+
+        if (is_admin()) {
+
+            require_once(__DIR__ . '/includes/autoupdater/WpAutoUpdater.php');
+            require_once(__DIR__ . '/includes/autoupdater/installer.php');
+            require_once(__DIR__ . '/includes/autoupdater/updater.php');
+        }
+    }
+
+    function cb_bpvm_my_votes()
+    {
+
+        echo do_shortcode('[uvt_report]');
+    }
+
+    function uvt_report()
+    {
+        wp_enqueue_style($this->plugin_slug . '-admin');
         wp_enqueue_style('bwl-pvm-datatables-style');
         wp_enqueue_script('bpvm-datatable-script');
         wp_enqueue_script('bpvm-admin-voting-report-script');
         wp_enqueue_script('bpvm-datatable-script');
-        wp_enqueue_script( $this->plugin_slug . '-admin-custom-script');
+        wp_enqueue_script($this->plugin_slug . '-admin');
         include_once 'includes/view-user-voting-report.php';
-        
     }
-    
+
 
     //@Description: Generate Voting Data in data grid.
     //@Since: Version 1.1.1
 
 
-    function uvt_voting_stats() {
-        
+    function uvt_voting_stats()
+    {
+
 
         global $wpdb;
         $bpvm_posts_data_table = $wpdb->prefix . "posts"; // for deatils. each day info.
         $bpvm_voting_data_table = $wpdb->prefix . "bpvm_data"; // for deatils. each day info.
-
+        $con_mv_post_filters = "";
         $requestData = $_POST;
-        $data = array();
+        $data = [];
 
         $columns = array(
             0 => 'ID',
@@ -168,7 +195,7 @@ class BPVM_UVT_Admin {
         $uvt_custom_date_range = $_POST['uvt_custom_date_range']; // Get Custom Date range status.
         $uvt_filter_start_date = $_POST['uvt_filter_start_date']; // Starting date of filter.
         $uvt_filter_end_date = $_POST['uvt_filter_end_date']; // Ending date of filter.
-        
+
         // New Code Implemented In Version 1.1.4
 
         $vars = array($user_id);
@@ -191,8 +218,8 @@ class BPVM_UVT_Admin {
 
         if ($uvt_custom_date_range == "true") {
 
-            $uvt_filter_start_date = ( $uvt_filter_start_date == "" ) ? "2010-04-01" : $uvt_filter_start_date;
-            $uvt_filter_end_date = ( $uvt_filter_end_date == "" ) ? "2020-04-01" : $uvt_filter_end_date;
+            $uvt_filter_start_date = ($uvt_filter_start_date == "") ? "2010-04-01" : $uvt_filter_start_date;
+            $uvt_filter_end_date = ($uvt_filter_end_date == "") ? "2020-04-01" : $uvt_filter_end_date;
 
             $con_mv_date_range_filters .= " AND DATE({$bpvm_voting_data_table}.vote_date) >= %s AND DATE({$bpvm_voting_data_table}.vote_date) <= %s ";
 
@@ -215,15 +242,15 @@ class BPVM_UVT_Admin {
 
         $bpvm_total_votes = $wpdb->get_results($count_sql, ARRAY_A);
 
-//               echo $wpdb->last_query;
+        //               echo $wpdb->last_query;
 
         wp_reset_vars($vars);
         wp_reset_query();
 
-        $totalData = (!empty($bpvm_total_votes[0]['total_count']) ) ? $bpvm_total_votes[0]['total_count'] : 0;
+        $totalData = (!empty($bpvm_total_votes[0]['total_count'])) ? $bpvm_total_votes[0]['total_count'] : 0;
         $totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
         //
-           // Get each votes info in details. ( Details )
+        // Get each votes info in details. ( Details )
 
         $order_query = " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
 
@@ -240,10 +267,10 @@ class BPVM_UVT_Admin {
         //    echo "<pre>";
         //    print_r($pvm_vote_data);
         //    echo "</pre>";
-//                echo $wpdb->last_query;
+        //                echo $wpdb->last_query;
         //        die();
 
-        $bpvm_full_vote_data = array();
+        $bpvm_full_vote_data = [];
 
         if (sizeof($pvm_vote_data) > 0) :
 
@@ -262,11 +289,11 @@ class BPVM_UVT_Admin {
                 // End of backend total vote counting.
 
                 array_push($bpvm_full_vote_data, array(
-//                    ( $mv_vote_info_type == 2 ) ? '<input type="checkbox"  class="deleteRow" value="' . $row_id . '" data-post_id="' . $user_id . '" data-votes="' . $votes . '" data-vote_type="' . $vote_type . '" data-vote_date="' . $vote_date . '"/>' : '-',
+                    //                    ( $mv_vote_info_type == 2 ) ? '<input type="checkbox"  class="deleteRow" value="' . $row_id . '" data-post_id="' . $user_id . '" data-votes="' . $votes . '" data-vote_type="' . $vote_type . '" data-vote_date="' . $vote_date . '"/>' : '-',
                     $post_title,
                     $post_type,
                     $vote_date,
-                    ( $vote_type == 2 ) ? __('Dislike', 'bwl-pro-voting-manager') : __('Like', 'bwl-pro-voting-manager'),
+                    ($vote_type == 2) ? __('Dislike', 'bwl-pro-voting-manager') : __('Like', 'bwl-pro-voting-manager'),
                     $votes
                 ));
 
@@ -290,5 +317,4 @@ class BPVM_UVT_Admin {
         echo json_encode($data);
         die();
     }
-
 }
