@@ -142,9 +142,9 @@ class BPVM_UVT_Admin
 
         if (is_admin()) {
 
-            require_once(__DIR__ . '/includes/autoupdater/WpAutoUpdater.php');
-            require_once(__DIR__ . '/includes/autoupdater/installer.php');
-            require_once(__DIR__ . '/includes/autoupdater/updater.php');
+            include_once BPVM_UVT_DIR . 'includes/autoupdater/WpAutoUpdater.php';
+            include_once BPVM_UVT_DIR . 'includes/autoupdater/installer.php';
+            include_once BPVM_UVT_DIR . 'includes/autoupdater/updater.php';
         }
     }
 
