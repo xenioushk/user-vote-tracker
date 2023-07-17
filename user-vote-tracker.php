@@ -25,7 +25,7 @@ define('BPVM_UVT_ADDON_CURRENT_VERSION', '1.0.3'); // change plugin current vers
 
 define('BPVM_UVT_PATH', plugin_dir_path(__FILE__));
 define("BPVM_UVT_ADDON_DIR", plugins_url() . '/user-vote-tracker/');
-define("BPVM_UVT_ADDON_UPDATER_SLUG", plugin_basename(__FILE__)); // change plugin current version in here.
+define("BPVM_UVT_ADDON_UPDATER_SLUG", plugin_basename(__FILE__));
 
 require_once(plugin_dir_path(__FILE__) . 'includes/public/class-uvt-addon.php');
 

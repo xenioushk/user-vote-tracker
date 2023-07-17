@@ -15,7 +15,7 @@ class BPVM_UVT_Admin
         //@Description: First we need to check if Pro Voting Manager Plugin & WooCommerce is activated or not. If not then we display a message and return false.
         //@Since: Version 1.0.5
 
-        if (!class_exists('BWL_Pro_Voting_Manager') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION <  BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
+        if (!class_exists('BWL_Pro_Voting_Manager') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION <  BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION) {
             add_action('admin_notices', [$this, 'uvt_version_update_admin_notice']);
             return false;
         }
@@ -31,9 +31,9 @@ class BPVM_UVT_Admin
         add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
 
         add_action('admin_menu', [$this, 'uvtDisplaySubmenu']);
-
         add_action('wp_ajax_uvt_voting_stats', [$this, 'uvt_voting_stats']);
 
+        // shortcode.
         add_shortcode('uvt_report', [$this, 'uvt_report']);
     }
 

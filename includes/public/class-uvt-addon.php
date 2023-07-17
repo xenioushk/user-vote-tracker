@@ -46,7 +46,6 @@ class BPVM_UVT
     public function uvt_create_custom_column()
     {
 
-
         // First we need to check if the patch already applied or not.
         $pvm_uvt_columns = get_option('pvm_uvt_upgrade_114');
 
@@ -68,25 +67,12 @@ class BPVM_UVT
         }
     }
 
-    /**
-     * Return the plugin slug.
-     *
-     * @since    1.0.0
-     *
-     * @return    Plugin slug variable.
-     */
     public function get_plugin_slug()
     {
         return $this->plugin_slug;
     }
 
-    /**
-     * Return an instance of this class.
-     *
-     * @since     1.0.0
-     *
-     * @return    object    A single instance of this class.
-     */
+
     public static function get_instance()
     {
 
@@ -98,16 +84,6 @@ class BPVM_UVT
         return self::$instance;
     }
 
-    /**
-     * Fired when the plugin is activated.
-     *
-     * @since    1.0.0
-     *
-     * @param    boolean    $network_wide    True if WPMU superadmin uses
-     *                                       "Network Activate" action, false if
-     *                                       WPMU is disabled or plugin is
-     *                                       activated on an individual blog.
-     */
     public static function activate($network_wide)
     {
 
@@ -133,16 +109,7 @@ class BPVM_UVT
         }
     }
 
-    /**
-     * Fired when the plugin is deactivated.
-     *
-     * @since    1.0.0
-     *
-     * @param    boolean    $network_wide    True if WPMU superadmin uses
-     *                                       "Network Deactivate" action, false if
-     *                                       WPMU is disabled or plugin is
-     *                                       deactivated on an individual blog.
-     */
+
     public static function deactivate($network_wide)
     {
 
@@ -193,31 +160,18 @@ class BPVM_UVT
         return $wpdb->get_col($sql);
     }
 
-    /**
-     * Fired for each blog when the plugin is activated.
-     *
-     * @since    1.0.0
-     */
+
     private static function single_activate()
     {
         // @TODO: Define activation functionality here
     }
 
-    /**
-     * Fired for each blog when the plugin is deactivated.
-     *
-     * @since    1.0.0
-     */
+
     private static function single_deactivate()
     {
         // @TODO: Define deactivation functionality here
     }
 
-    /**
-     * Load the plugin text domain for translation.
-     *
-     * @since    1.0.0
-     */
     public function load_plugin_textdomain()
     {
 
@@ -227,21 +181,12 @@ class BPVM_UVT
         load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
     }
 
-    /**
-     * Register and enqueue public-facing style sheet.
-     *
-     * @since    1.0.0
-     */
+
     public function enqueue_styles()
     {
         wp_enqueue_style($this->plugin_slug . '-frontend', BPVM_UVT_ADDON_DIR . 'assets/styles/frontend.css', [], self::VERSION);
     }
 
-    /**
-     * Register and enqueues public-facing JavaScript files.
-     *
-     * @since    1.0.0
-     */
     public function enqueue_scripts()
     {
         wp_enqueue_script($this->plugin_slug . '-frontend', BPVM_UVT_ADDON_DIR . 'assets/scripts/frontend.js', ['jquery'], self::VERSION);
@@ -353,11 +298,9 @@ class BPVM_UVT
 
         $totalData = (!empty($bpvm_total_votes[0]['total_count'])) ? $bpvm_total_votes[0]['total_count'] : 0;
         $totalFiltered = ceil($totalData / $limit); // when there is no search parameter then total number rows = total number filtered rows.
-        // Get each votes info in details. ( Details )
 
         $order_type = "DESC";
 
-        //                    $order_query = " ORDER BY " . $columns[1] . "   " . $order_type . "  LIMIT " . $start . " ," . $limit . "   ";
         $order_query = " ORDER BY vote_date_time   " . $order_type . "  LIMIT " . $start . " ," . $limit . "   ";
 
         $sql = $wpdb->prepare("SELECT " . $bpvm_selected_columns . " FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
