@@ -3,40 +3,20 @@
 class BPVM_UVT_Admin
 {
 
-    /**
-     * Instance of this class.
-     *
-     * @since    1.0.0
-     *
-     * @var      object
-     */
     protected static $instance = null;
 
     public $plugin_slug;
 
-    /**
-     * Slug of the plugin screen.
-     *
-     * @since    1.0.0
-     *
-     * @var      string
-     */
     protected $plugin_screen_hook_suffix = null;
 
-    /**
-     * Initialize the plugin by loading admin scripts & styles and adding a
-     * settings page and menu.
-     *
-     * @since     1.0.0
-     */
     private function __construct()
     {
 
         //@Description: First we need to check if Pro Voting Manager Plugin & WooCommerce is activated or not. If not then we display a message and return false.
         //@Since: Version 1.0.5
 
-        if (!class_exists('BWL_Pro_Voting_Manager') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION < '1.1.4') {
-            add_action('admin_notices', array($this, 'uvt_version_update_admin_notice'));
+        if (!class_exists('BWL_Pro_Voting_Manager') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION <  BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
+            add_action('admin_notices', [$this, 'uvt_version_update_admin_notice']);
             return false;
         }
 
@@ -47,23 +27,16 @@ class BPVM_UVT_Admin
 
         $this->includeFiles();
 
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_styles']);
+        add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
 
-        add_action('admin_menu', array($this, 'uvtDisplaySubmenu'));
+        add_action('admin_menu', [$this, 'uvtDisplaySubmenu']);
 
-        add_action('wp_ajax_uvt_voting_stats', array($this, 'uvt_voting_stats'));
+        add_action('wp_ajax_uvt_voting_stats', [$this, 'uvt_voting_stats']);
 
-        add_shortcode('uvt_report', array($this, 'uvt_report'));
+        add_shortcode('uvt_report', [$this, 'uvt_report']);
     }
 
-    /**
-     * Return an instance of this class.
-     *
-     * @since     1.0.0
-     *
-     * @return    object    A single instance of this class.
-     */
     public static function get_instance()
     {
 
@@ -84,22 +57,12 @@ class BPVM_UVT_Admin
         return self::$instance;
     }
 
-    /**
-     * Register and enqueues public-facing JavaScript files.
-     *
-     * @since    1.0.0
-     */
     public function enqueue_admin_styles()
     {
 
         wp_register_style($this->plugin_slug . '-admin', BPVM_UVT_ADDON_DIR . 'assets/styles/admin.css', [], BPVM_UVT::VERSION);
     }
 
-    /**
-     * Register and enqueues public-facing JavaScript files.
-     *
-     * @since    1.0.0
-     */
     public function enqueue_scripts()
     {
 
@@ -120,8 +83,8 @@ class BPVM_UVT_Admin
     {
 
         echo '<div class="updated"><p>You need to download & install '
-            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank"> BWL Pro Voting Manager (Minimum Version 1.1.4)</a></b> '
-            . 'to use ' . BPVM_UVT_ADDON_TITLE . '.</p></div>';
+            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVM_UVT_ADDON_PARENT_PLUGIN_TITLE . '</a></b> (minimum ' . BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION . ')'
+            . ' to use ' . BPVM_UVT_ADDON_TITLE . '.</p></div>';
     }
 
     function uvtDisplaySubmenu()
@@ -133,7 +96,7 @@ class BPVM_UVT_Admin
             __('My Votes', 'bpvm_uvt'),
             'read',
             'bpvm-my-votes',
-            array($this, 'cb_bpvm_my_votes')
+            [$this, 'cb_bpvm_my_votes']
         );
     }
 
@@ -142,9 +105,9 @@ class BPVM_UVT_Admin
 
         if (is_admin()) {
 
-            include_once BPVM_UVT_DIR . 'includes/autoupdater/WpAutoUpdater.php';
-            include_once BPVM_UVT_DIR . 'includes/autoupdater/installer.php';
-            include_once BPVM_UVT_DIR . 'includes/autoupdater/updater.php';
+            include_once BPVM_UVT_PATH . 'includes/autoupdater/WpAutoUpdater.php';
+            include_once BPVM_UVT_PATH . 'includes/autoupdater/installer.php';
+            include_once BPVM_UVT_PATH . 'includes/autoupdater/updater.php';
         }
     }
 
@@ -173,7 +136,6 @@ class BPVM_UVT_Admin
     function uvt_voting_stats()
     {
 
-
         global $wpdb;
         $bpvm_posts_data_table = $wpdb->prefix . "posts"; // for deatils. each day info.
         $bpvm_voting_data_table = $wpdb->prefix . "bpvm_data"; // for deatils. each day info.
@@ -181,12 +143,12 @@ class BPVM_UVT_Admin
         $requestData = $_POST;
         $data = [];
 
-        $columns = array(
+        $columns = [
             0 => 'ID',
             1 => 'vote_date',
             2 => 'vote_type',
             3 => 'votes'
-        );
+        ];
 
         $user_id = $_POST['user_id']; // Get post ID 
         $post_type = $_POST['post_type']; // WordPress Available Post Types.
@@ -198,7 +160,7 @@ class BPVM_UVT_Admin
 
         // New Code Implemented In Version 1.1.4
 
-        $vars = array($user_id);
+        $vars = [$user_id];
 
         $bpvm_selected_columns = "{$bpvm_posts_data_table}.ID,{$bpvm_voting_data_table}.postid,{$bpvm_voting_data_table}.post_type,{$bpvm_voting_data_table}.vote_type,{$bpvm_voting_data_table}.votes,DATE({$bpvm_voting_data_table}.vote_date) as vote_date, {$bpvm_posts_data_table}.post_title ";
 
@@ -289,14 +251,14 @@ class BPVM_UVT_Admin
 
                 // End of backend total vote counting.
 
-                array_push($bpvm_full_vote_data, array(
+                array_push($bpvm_full_vote_data, [
                     //                    ( $mv_vote_info_type == 2 ) ? '<input type="checkbox"  class="deleteRow" value="' . $row_id . '" data-post_id="' . $user_id . '" data-votes="' . $votes . '" data-vote_type="' . $vote_type . '" data-vote_date="' . $vote_date . '"/>' : '-',
                     "<a href='{$post_permalink}' target='_blank'>" . $post_title . "</a>",
                     $post_type,
                     $vote_date,
                     ($vote_type == 2) ? __('Dislike', 'bwl-pro-voting-manager') : __('Like', 'bwl-pro-voting-manager'),
                     $votes
-                ));
+                ]);
 
                 $i++;
 
@@ -308,12 +270,12 @@ class BPVM_UVT_Admin
         wp_reset_query();
 
 
-        $data = array(
+        $data = [
             "draw" => intval($requestData['draw']), // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw. 
             "recordsTotal" => intval($totalData), // total number of records
             "recordsFiltered" => intval($totalFiltered), // total number of records after searching, if there is no searching then totalFiltered = totalData
             'data' => $bpvm_full_vote_data
-        );
+        ];
         ob_start("ob_gzhandler");
         echo json_encode($data);
         die();

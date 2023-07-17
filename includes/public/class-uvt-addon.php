@@ -3,7 +3,7 @@
 class BPVM_UVT
 {
 
-    const VERSION = '1.0.0';
+    const VERSION = BPVMWPVA_ADDON_CURRENT_VERSION;
 
     protected $plugin_slug = 'bpvm-uvt';
     protected static $instance = null;
@@ -11,7 +11,7 @@ class BPVM_UVT
     private function __construct()
     {
 
-        if (class_exists('BWL_Pro_Voting_Manager') && BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION > '1.1.3') {
+        if (class_exists('BWL_Pro_Voting_Manager') && BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
 
             $this->uvt_create_custom_column();
 
@@ -40,7 +40,7 @@ class BPVM_UVT
 
     public function include_files()
     {
-        require_once(BPVM_UVT_DIR . 'includes/widgets/user-vote-tracker-widget.php');
+        require_once(BPVM_UVT_PATH . 'includes/widgets/user-vote-tracker-widget.php');
     }
 
     public function uvt_create_custom_column()
