@@ -16,15 +16,15 @@ class BPVM_UVT
             $this->uvt_create_custom_column();
 
             // Load plugin text domain
-            add_action('init', array($this, 'load_plugin_textdomain'));
+            add_action('init', [$this, 'load_plugin_textdomain']);
 
             // Load public-facing style sheet and JavaScript.
-            add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
-            add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-            add_shortcode('uvt_front', array($this, 'cb_uvt_front'));
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+            add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+            add_shortcode('uvt_front', [$this, 'cb_uvt_front']);
 
-            add_action('wp_ajax_get_user_vote_data', array($this, 'get_user_vote_data'));
-            add_action('wp_ajax_nopriv_get_user_vote_data', array($this, 'get_user_vote_data'));
+            add_action('wp_ajax_get_user_vote_data', [$this, 'get_user_vote_data']);
+            add_action('wp_ajax_nopriv_get_user_vote_data', [$this, 'get_user_vote_data']);
 
             $this->include_files();
         }
@@ -222,12 +222,12 @@ class BPVM_UVT
             return ""; // uncomment it later
         }
 
-        $columns = array(
+        $columns = [
             0 => 'ID',
             1 => 'vote_date',
             2 => 'vote_type',
             3 => 'votes'
-        );
+        ];
 
 
         $post_type = ""; // WordPress Available Post Types.
@@ -388,13 +388,13 @@ class BPVM_UVT
     public function cb_uvt_front($atts)
     {
 
-        $atts = shortcode_atts(array(
+        $atts = shortcode_atts([
             'filter' => 'all', // all, 1=liked, 2=disliked
             'limit' => 5,
             'pagination' => 1,
             'meta' => 0,
             'global_mode' => 0
-        ), $atts);
+        ], $atts);
 
         extract($atts);
 
