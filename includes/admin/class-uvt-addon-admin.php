@@ -71,7 +71,7 @@ class BPVM_UVT_Admin
             $this->plugin_slug . '-admin',
             'uvtBpvmAdminData',
             [
-                'product_id' => 18480330,
+                'product_id' => BPVM_UVT_CC_ID,
                 'installation' => get_option('uvt_bpvm_installation')
             ]
         );
