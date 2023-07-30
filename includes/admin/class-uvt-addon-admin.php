@@ -72,7 +72,7 @@ class BPVM_UVT_Admin
             'uvtBpvmAdminData',
             [
                 'product_id' => BPVM_UVT_CC_ID,
-                'installation' => get_option('uvt_bpvm_installation')
+                'installation' => get_option(BPVM_UVT_INSTALLATION_TAG)
             ]
         );
     }

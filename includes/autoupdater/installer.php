@@ -1,7 +1,6 @@
 <?php
 
 add_action("wp_ajax_uvt_bpvm_installation_counter", "uvtBpvmAddInstallationData");
-add_action("wp_ajax_nopriv_uvt_bpvm_installation_counter", "uvtBpvmAddInstallationData");
 
 function uvtBpvmApiUrl()
 {
@@ -21,7 +20,8 @@ function uvtBpvmAddInstallationData()
   $site_url = get_site_url();
   $product_id = BPVM_UVT_CC_ID; // change the id
   $ip = $_SERVER['REMOTE_ADDR'];
-  $requestUrl = $apiURL . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip";
+  $ver = BPVM_UVT_ADDON_CURRENT_VERSION;
+  $requestUrl = $apiURL . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip&ver=$ver";
 
   $output = wp_remote_get($requestUrl);
 
@@ -38,9 +38,9 @@ function uvtBpvmAddInstallationData()
 
     $output_decode = json_decode($data, true);
 
-    if (isset($output_decode['status']) && $output_decode['status'] == 1) {
+    if (isset($output_decode['status']) && $output_decode['status'] != 0) {
 
-      update_option('uvt_bpvm_installation', '1'); // change the tag
+      update_option(BPVM_UVT_INSTALLATION_TAG, '1'); // change the tag
 
       $data = [
         'status' => $output_decode['status'],
