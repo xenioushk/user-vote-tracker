@@ -3,7 +3,7 @@
 class BPVM_UVT
 {
 
-    const VERSION = BPVMWPVA_ADDON_CURRENT_VERSION;
+    const VERSION = BPVM_UVT_ADDON_CURRENT_VERSION;
 
     protected $plugin_slug = 'bpvm-uvt';
     protected static $instance = null;
@@ -11,7 +11,7 @@ class BPVM_UVT
     private function __construct()
     {
 
-        if (class_exists('BWL_Pro_Voting_Manager') && BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION >= BPVMWPVA_PARENT_PLUGIN_REQUIRED_VERSION) {
+        if (class_exists('BWL_Pro_Voting_Manager') && BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION >= BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION) {
 
             $this->uvt_create_custom_column();
 
