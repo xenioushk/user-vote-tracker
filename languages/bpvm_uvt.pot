@@ -1,0 +1,184 @@
+# Copyright (C) 2015 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: User Vote Tracker - Pro Voting Manager Addon\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2023-09-07 01:34+0300\n"
+"PO-Revision-Date: 2018-01-31 21:24+0600\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-KeywordsList: _;__;_n;_x;_e;esc_attr__;esc_attr_e;esc_html__;"
+"esc_html_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: includes/admin/class-uvt-addon-admin.php:74
+msgid "You need to download & install"
+msgstr ""
+
+#: includes/admin/class-uvt-addon-admin.php:76
+msgid "to use"
+msgstr ""
+
+#: includes/admin/class-uvt-addon-admin.php:85
+#: includes/admin/class-uvt-addon-admin.php:86
+msgid "My Votes"
+msgstr ""
+
+#: includes/admin/class-uvt-addon-admin.php:249
+msgid "Dislike"
+msgstr ""
+
+#: includes/admin/class-uvt-addon-admin.php:249
+msgid "Like"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:17
+msgid "My Voting Report:"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:30
+msgid "Post Types:"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:33
+#: includes/admin/includes/view-user-voting-report.php:53
+#: includes/admin/includes/view-user-voting-report.php:60
+msgid "Select"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:50
+msgid "Posts:"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:57
+msgid "Filter Type:"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:61
+msgid "Only Likes"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:62
+msgid "Only Dislikes"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:68
+msgid "Info Type:"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:71
+msgid "Summary"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:72
+msgid "Details"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:76
+msgid "Custom Date Range :"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:86
+msgid "Generate Report"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:99
+msgid "Post Title"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:100
+msgid "Post Type"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:101
+msgid "Vote Date"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:102
+msgid "Vote Type"
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:103
+msgid "Votes"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:331
+#: includes/widgets/user-vote-tracker-widget.php:61
+msgid "Disliked"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:331
+#: includes/widgets/user-vote-tracker-widget.php:59
+msgid "Liked"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:347
+msgid "ago"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:356
+msgid "Sorry, No Result Found !"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:369
+msgid "Previous"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:373
+msgid "Next"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:18
+msgid "User Vote Tracker Widget"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:21
+msgid "Display recent up/down voted items in sidebar area."
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:30
+msgid "Recent Voted Posts"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:46
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:53
+msgid "Order Type:"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:57
+msgid "All"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:67
+msgid "No Of Posts"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:74
+msgid "Display Pagination"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:83
+msgid "Hide Meta Information"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:92
+msgid "Enable Global Mode"
+msgstr ""
+
+#: includes/widgets/user-vote-tracker-widget.php:97
+msgid "Display recent liked/disliked votes by all the voters."
+msgstr ""
