@@ -3,12 +3,22 @@
 /**
  * Plugin Name:   User Vote Tracker - Pro Voting Manager Addon
  * Plugin URI:      https://bluewindlab.net/portfolio/user-vote-tracker-bwl-pro-voting-manager-addon/
- * Description:     Addon track and count each post vote and display voted posts lists in user profile page.
+ * Description:     This addon performs the task of diligently monitoring and counting votes on each post. It then compiles these vote records into user-friendly lists readily accessible on the individual user profile pages. This feature simplifies reviewing one's voting history and encourages user engagement with post-voting.
  * Version:          1.0.6
  * Author:           Mahbub Alam Khan
  * Author URI:     https://1.envato.market/bpvm-wp
  * Text Domain:   bpvm_uvt
+ * Domain Path: /languages/
+ * 
+ * 
+ * @package User Vote Tracker - Pro Voting Manager Addon
+ * @author Mahbub Alam Khan
+ * @license GPL-2.0+
+ * @link https://bluewindlab.net
+ * @copyright 2023 BlueWindLab
+ * 
  */
+
 
 // If this file is called directly, abort.
 if (!defined('WPINC')) {

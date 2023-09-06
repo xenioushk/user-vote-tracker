@@ -40,15 +40,6 @@ class BPVM_UVT_Admin
     public static function get_instance()
     {
 
-        /*
-         * @TODO :
-         *
-         * - Uncomment following lines if the admin class should only be available for super admins
-         */
-        /* if( ! is_super_admin() ) {
-          return;
-          } */
-
         // If the single instance hasn't been set, set it now.
         if (null == self::$instance) {
             self::$instance = new self;
@@ -77,14 +68,13 @@ class BPVM_UVT_Admin
         );
     }
 
-    //Version Manager:  Update Checking
-
     public function uvt_version_update_admin_notice()
     {
-
-        echo '<div class="updated"><p>You need to download & install '
-            . '<b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVM_UVT_ADDON_PARENT_PLUGIN_TITLE . '</a></b> (minimum ' . BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION . ')'
-            . ' to use ' . BPVM_UVT_ADDON_TITLE . '.</p></div>';
+        echo '<div class="notice notice-error">
+        <p><span class="dashicons dashicons-info-outline"></span> ' . esc_html__("You need to download & install", "bpvm_uvt") .
+            ' <b><a href="https://1.envato.market/bpvm-wp" target="_blank">' . BPVM_UVT_ADDON_PARENT_PLUGIN_TITLE . '</a></b> '
+            . esc_html__("to use", "bpvm_uvt") . ' <b>' . BPVM_UVT_ADDON_TITLE . '</b>.</p>
+            </div>';
     }
 
     function uvtDisplaySubmenu()
