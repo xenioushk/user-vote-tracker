@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: User Vote Tracker - Pro Voting Manager Addon\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2023-09-07 01:43+0300\n"
+"POT-Creation-Date: 2023-09-07 11:30+0300\n"
 "PO-Revision-Date: 2018-01-31 21:24+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
@@ -35,11 +35,11 @@ msgstr ""
 msgid "My Votes"
 msgstr ""
 
-#: includes/admin/class-uvt-addon-admin.php:249
+#: includes/admin/class-uvt-addon-admin.php:247
 msgid "Dislike"
 msgstr ""
 
-#: includes/admin/class-uvt-addon-admin.php:249
+#: includes/admin/class-uvt-addon-admin.php:247
 msgid "Like"
 msgstr ""
 
@@ -113,29 +113,45 @@ msgstr ""
 msgid "Votes"
 msgstr ""
 
-#: includes/public/class-uvt-addon.php:331
+#: includes/admin/metainfo/BpvmUvtMetaInfo.php:23
+msgid "My Votes Report"
+msgstr ""
+
+#: includes/admin/metainfo/BpvmUvtMetaInfo.php:27
+msgid "Docs"
+msgstr ""
+
+#: includes/admin/metainfo/BpvmUvtMetaInfo.php:32
+msgid "Support"
+msgstr ""
+
+#: includes/admin/metainfo/BpvmUvtMetaInfo.php:37
+msgid "Tutorials"
+msgstr ""
+
+#: includes/public/class-uvt-addon.php:329
 #: includes/widgets/user-vote-tracker-widget.php:61
 msgid "Disliked"
 msgstr ""
 
-#: includes/public/class-uvt-addon.php:331
+#: includes/public/class-uvt-addon.php:329
 #: includes/widgets/user-vote-tracker-widget.php:59
 msgid "Liked"
 msgstr ""
 
-#: includes/public/class-uvt-addon.php:347
+#: includes/public/class-uvt-addon.php:345
 msgid "ago"
 msgstr ""
 
-#: includes/public/class-uvt-addon.php:356
+#: includes/public/class-uvt-addon.php:354
 msgid "Sorry, No Result Found !"
 msgstr ""
 
-#: includes/public/class-uvt-addon.php:369
+#: includes/public/class-uvt-addon.php:367
 msgid "Previous"
 msgstr ""
 
-#: includes/public/class-uvt-addon.php:373
+#: includes/public/class-uvt-addon.php:371
 msgid "Next"
 msgstr ""
 
