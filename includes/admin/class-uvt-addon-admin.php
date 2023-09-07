@@ -93,12 +93,10 @@ class BPVM_UVT_Admin
     function includeFiles()
     {
 
-        if (is_admin()) {
-
-            include_once BPVM_UVT_PATH . 'includes/autoupdater/WpAutoUpdater.php';
-            include_once BPVM_UVT_PATH . 'includes/autoupdater/installer.php';
-            include_once BPVM_UVT_PATH . 'includes/autoupdater/updater.php';
-        }
+        include_once BPVM_UVT_PATH . 'includes/admin/autoupdater/WpAutoUpdater.php';
+        include_once BPVM_UVT_PATH . 'includes/admin/autoupdater/installer.php';
+        include_once BPVM_UVT_PATH . 'includes/admin/autoupdater/updater.php';
+        include_once BPVM_UVT_PATH . 'includes/admin/metainfo/BpvmUvtMetaInfo.php';
     }
 
     function cb_bpvm_my_votes()
