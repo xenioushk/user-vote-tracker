@@ -29,12 +29,12 @@ class BpvmUvtMetaInfo
           'nt' => 1
         ],
         [
-          'title' =>  '<span class="dashicons dashicons-editor-help"></span>' . esc_html__("Support", "bpvm_uvt"),
+          'title' => esc_html__("Support", "bpvm_uvt"),
           'url' => "https://codecanyon.net/item/bwl-pro-voting-manager/7616885/support",
           'nt' => 1
         ],
         [
-          'title' => '<span class="dashicons dashicons-youtube"></span>' . esc_html__("Tutorials", "bpvm_uvt"),
+          'title' => esc_html__("Tutorials", "bpvm_uvt"),
           'url' => BPVM_YOUTUBE_PLAYLIST,
           'nt' => 1
         ]
