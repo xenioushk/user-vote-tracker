@@ -326,7 +326,7 @@ class BPVM_UVT
                 $vote_type = $vote_data['vote_type'];
                 $voted_date = $vote_data['vote_date_time'];
 
-                $vote_type_text = ($vote_type == 2) ? __('Disliked', 'bpvm_uvt') : __('Liked', 'bpvm_uvt');
+                $vote_type_text = ($vote_type == 2) ? esc_html__("Disliked", "bpvm_uvt") : esc_html__("Liked", "bpvm_uvt");
 
                 $uvt_post_link = get_permalink($post_id);
 
@@ -342,7 +342,7 @@ class BPVM_UVT
 
                     $voted_time_ago = human_time_diff($signed_date, $my_current_time);
 
-                    $uvt_meta = '<span><time class="" datetime="' . $voted_date . '">' . $vote_type_text . ' ' . $voted_time_ago .  ' ' . __('ago', 'bpvm_uvt') . '</time></span>';
+                    $uvt_meta = '<span><time class="" datetime="' . $voted_date . '">' . $vote_type_text . ' ' . $voted_time_ago .  ' ' . esc_html__("ago", "bpvm_uvt") . '</time></span>';
                 }
 
                 $uvt_output .= '<li><a href="' . $uvt_post_link . '">' . $post_title . '</a>' . $uvt_meta . '</li>';
@@ -351,7 +351,7 @@ class BPVM_UVT
 
         else :
 
-            $uvt_output .= '<li>' . __('Sorry, No Result Found !', 'bpvm_uvt') . '</li>';
+            $uvt_output .= '<li>' . esc_html__("Sorry, No Result Found !", "bpvm_uvt") . '</li>';
 
         endif;
 
@@ -364,11 +364,11 @@ class BPVM_UVT
             $uvt_pagination_link .= '<div class="uvt_pagination">';
 
             if ($id > 1) {
-                $uvt_pagination_link .= '<a href="#" data-start_id="' . ($id - 1) . '" data-limit="' . $limit . '" data-filter="' . $filter . '" data-pagination="' . $pagination . '" data-meta="' . $meta . '" data-global_mode="' . $global_mode . '"  class="uvt-btn-prev">' . __('Previous', 'bpvm_uvt') . '</a>';
+                $uvt_pagination_link .= '<a href="#" data-start_id="' . ($id - 1) . '" data-limit="' . $limit . '" data-filter="' . $filter . '" data-pagination="' . $pagination . '" data-meta="' . $meta . '" data-global_mode="' . $global_mode . '"  class="uvt-btn-prev">' . esc_html__("Previous", "bpvm_uvt") . '</a>';
             }
 
             if ($id != $totalFiltered) {
-                $uvt_pagination_link .= '<a href="#" data-start_id="' . ($id + 1) . '" data-limit="' . $limit . '" data-filter="' . $filter . '" data-pagination="' . $pagination . '" data-meta="' . $meta . '" data-global_mode="' . $global_mode . '"  class="uvt-btn-next">' . __('Next', 'bpvm_uvt') . '</a>';
+                $uvt_pagination_link .= '<a href="#" data-start_id="' . ($id + 1) . '" data-limit="' . $limit . '" data-filter="' . $filter . '" data-pagination="' . $pagination . '" data-meta="' . $meta . '" data-global_mode="' . $global_mode . '"  class="uvt-btn-next">' . esc_html__("Next", "bpvm_uvt") . '</a>';
             }
 
             $uvt_pagination_link .= '</div>';

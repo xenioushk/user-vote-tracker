@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: User Vote Tracker - Pro Voting Manager Addon\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2023-09-07 11:30+0300\n"
+"POT-Creation-Date: 2023-09-08 21:35+0300\n"
 "PO-Revision-Date: 2018-01-31 21:24+0600\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
@@ -47,69 +47,73 @@ msgstr ""
 msgid "My Voting Report:"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:30
+#: includes/admin/includes/view-user-voting-report.php:17
+msgid "Processing...."
+msgstr ""
+
+#: includes/admin/includes/view-user-voting-report.php:29
 msgid "Post Types:"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:33
-#: includes/admin/includes/view-user-voting-report.php:53
-#: includes/admin/includes/view-user-voting-report.php:60
+#: includes/admin/includes/view-user-voting-report.php:32
+#: includes/admin/includes/view-user-voting-report.php:52
+#: includes/admin/includes/view-user-voting-report.php:59
 msgid "Select"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:50
+#: includes/admin/includes/view-user-voting-report.php:49
 msgid "Posts:"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:57
+#: includes/admin/includes/view-user-voting-report.php:56
 msgid "Filter Type:"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:61
+#: includes/admin/includes/view-user-voting-report.php:60
 msgid "Only Likes"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:62
+#: includes/admin/includes/view-user-voting-report.php:61
 msgid "Only Dislikes"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:68
+#: includes/admin/includes/view-user-voting-report.php:67
 msgid "Info Type:"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:71
+#: includes/admin/includes/view-user-voting-report.php:70
 msgid "Summary"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:72
+#: includes/admin/includes/view-user-voting-report.php:71
 msgid "Details"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:76
+#: includes/admin/includes/view-user-voting-report.php:75
 msgid "Custom Date Range :"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:86
+#: includes/admin/includes/view-user-voting-report.php:85
 msgid "Generate Report"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:99
+#: includes/admin/includes/view-user-voting-report.php:98
 msgid "Post Title"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:100
+#: includes/admin/includes/view-user-voting-report.php:99
 msgid "Post Type"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:101
+#: includes/admin/includes/view-user-voting-report.php:100
 msgid "Vote Date"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:102
+#: includes/admin/includes/view-user-voting-report.php:101
 msgid "Vote Type"
 msgstr ""
 
-#: includes/admin/includes/view-user-voting-report.php:103
+#: includes/admin/includes/view-user-voting-report.php:102
 msgid "Votes"
 msgstr ""
 
@@ -130,12 +134,12 @@ msgid "Tutorials"
 msgstr ""
 
 #: includes/public/class-uvt-addon.php:329
-#: includes/widgets/user-vote-tracker-widget.php:61
+#: includes/widgets/user-vote-tracker-widget.php:62
 msgid "Disliked"
 msgstr ""
 
 #: includes/public/class-uvt-addon.php:329
-#: includes/widgets/user-vote-tracker-widget.php:59
+#: includes/widgets/user-vote-tracker-widget.php:60
 msgid "Liked"
 msgstr ""
 
@@ -171,30 +175,30 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:53
+#: includes/widgets/user-vote-tracker-widget.php:54
 msgid "Order Type:"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:57
+#: includes/widgets/user-vote-tracker-widget.php:58
 msgid "All"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:67
+#: includes/widgets/user-vote-tracker-widget.php:69
 msgid "No Of Posts"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:74
+#: includes/widgets/user-vote-tracker-widget.php:77
 msgid "Display Pagination"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:83
+#: includes/widgets/user-vote-tracker-widget.php:87
 msgid "Hide Meta Information"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:92
+#: includes/widgets/user-vote-tracker-widget.php:97
 msgid "Enable Global Mode"
 msgstr ""
 
-#: includes/widgets/user-vote-tracker-widget.php:97
+#: includes/widgets/user-vote-tracker-widget.php:102
 msgid "Display recent liked/disliked votes by all the voters."
 msgstr ""

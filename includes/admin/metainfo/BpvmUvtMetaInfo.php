@@ -20,21 +20,21 @@ class BpvmUvtMetaInfo
       $additionalLinks = [
 
         [
-          'title' => __('My Votes Report', 'bpvm_uvt'),
+          'title' => esc_html__("My Votes Report", "bpvm_uvt"),
           'url' => get_admin_url() . 'users.php?page=bpvm-my-votes',
         ],
         [
-          'title' => __('Docs', 'bpvm_uvt'),
+          'title' => esc_html__("Docs", "bpvm_uvt"),
           'url' => 'https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/uvt/index.html',
           'nt' => 1
         ],
         [
-          'title' =>  '<span class="dashicons dashicons-editor-help"></span>' . __('Support', 'bpvm_uvt'),
+          'title' =>  '<span class="dashicons dashicons-editor-help"></span>' . esc_html__("Support", "bpvm_uvt"),
           'url' => "https://codecanyon.net/item/bwl-pro-voting-manager/7616885/support",
           'nt' => 1
         ],
         [
-          'title' => '<span class="dashicons dashicons-youtube"></span>' . __('Tutorials', 'bpvm_uvt'),
+          'title' => '<span class="dashicons dashicons-youtube"></span>' . esc_html__("Tutorials", "bpvm_uvt"),
           'url' => BPVM_YOUTUBE_PLAYLIST,
           'nt' => 1
         ]

@@ -82,8 +82,8 @@ class BPVM_UVT_Admin
 
         add_submenu_page(
             'users.php',
-            __('My Votes', 'bpvm_uvt'),
-            __('My Votes', 'bpvm_uvt'),
+            esc_html__("My Votes", "bpvm_uvt"),
+            esc_html__("My Votes", "bpvm_uvt"),
             'read',
             'bpvm-my-votes',
             [$this, 'cb_bpvm_my_votes']
@@ -244,7 +244,7 @@ class BPVM_UVT_Admin
                     "<a href='{$post_permalink}' target='_blank'>" . $post_title . "</a>",
                     $post_type,
                     $vote_date,
-                    ($vote_type == 2) ? __('Dislike', 'bwl-pro-voting-manager') : __('Like', 'bwl-pro-voting-manager'),
+                    ($vote_type == 2) ? esc_html__("Dislike", "bpvm_uvt") : esc_html__("Like", "bpvm_uvt"),
                     $votes
                 ]);
 
