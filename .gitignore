@@ -1,7 +1,6 @@
 node_modules
 vendor
 tests
-assets
 composer.lock
 *.map
 *.hot-update.js
