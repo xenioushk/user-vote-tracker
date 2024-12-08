@@ -4,7 +4,7 @@
  * Plugin Name:   User Vote Tracker - Pro Voting Manager Addon
  * Plugin URI:      https://1.envato.market/bpvm-wp
  * Description:     This addon performs the task of diligently monitoring and counting votes on each post. It then compiles these vote records into user-friendly lists readily accessible on the individual user profile pages. This feature simplifies reviewing one's voting history and encourages user engagement with post-voting.
- * Version:          1.0.7
+ * Version:          1.0.8
  * Author:           Mahbub Alam Khan
  * Author URI:     https://codecanyon.net/user/xenioushk
  * Requires at least: 6.0+
@@ -16,7 +16,7 @@
  * @author Mahbub Alam Khan
  * @license GPL-2.0+
  * @link https://codecanyon.net/user/xenioushk
- * @copyright 2023 BlueWindLab
+ * @copyright 2024 BlueWindLab
  * 
  */
 
@@ -32,7 +32,7 @@ define('BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_pvm_plugin_ve
 define('BPVM_UVT_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager');
 define('BPVM_UVT_ADDON_TITLE', "User Vote Tracker Addon");
 define('BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION', '1.3.0'); // change plugin required version in here.
-define('BPVM_UVT_ADDON_CURRENT_VERSION', '1.0.7'); // change plugin current version in here.
+define('BPVM_UVT_ADDON_CURRENT_VERSION', '1.0.8'); // change plugin current version in here.
 
 define("BPVM_UVT_ADDON_ROOT_FILE", "user-vote-tracker.php"); // use for the meta info.
 

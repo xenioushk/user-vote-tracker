@@ -1,26 +1,38 @@
-# Copyright (C) 2015 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
-#, fuzzy
+# Copyright (C) 2024 Mahbub Alam Khan
+# This file is distributed under the same license as the User Vote Tracker - Pro Voting Manager Addon plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: User Vote Tracker - Pro Voting Manager Addon\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2023-09-09 00:23+0300\n"
-"PO-Revision-Date: 2018-01-31 21:24+0600\n"
+"Project-Id-Version: User Vote Tracker - Pro Voting Manager Addon 1.0.8\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/user-vote-tracker\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
-"Language: en\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
-"X-Poedit-KeywordsList: _;__;_n;_x;_e;esc_attr__;esc_attr_e;esc_html__;"
-"esc_html_e\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: languages\n"
-"X-Poedit-SearchPath-1: .\n"
-"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"POT-Creation-Date: 2024-12-08T17:32:36+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: bpvm_uvt\n"
+
+#. Plugin Name of the plugin
+msgid "User Vote Tracker - Pro Voting Manager Addon"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://1.envato.market/bpvm-wp"
+msgstr ""
+
+#. Description of the plugin
+msgid "This addon performs the task of diligently monitoring and counting votes on each post. It then compiles these vote records into user-friendly lists readily accessible on the individual user profile pages. This feature simplifies reviewing one's voting history and encourages user engagement with post-voting."
+msgstr ""
+
+#. Author of the plugin
+msgid "Mahbub Alam Khan"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://codecanyon.net/user/xenioushk"
+msgstr ""
 
 #: includes/admin/class-uvt-addon-admin.php:74
 msgid "You need to download & install"
