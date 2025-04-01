@@ -15,7 +15,7 @@ class BPVM_UVT_Admin
         //@Description: First we need to check if Pro Voting Manager Plugin & WooCommerce is activated or not. If not then we display a message and return false.
         //@Since: Version 1.0.5
 
-        if (!class_exists('BWL_Pro_Voting_Manager') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION <  BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION) {
+        if (!class_exists('BPVMWP\\Init') || BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION <  BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION) {
             add_action('admin_notices', [$this, 'uvt_version_update_admin_notice']);
             return false;
         }
@@ -57,7 +57,7 @@ class BPVM_UVT_Admin
     public function enqueue_scripts()
     {
 
-        wp_register_script($this->plugin_slug . '-admin', BPVM_UVT_ADDON_DIR . 'assets/scripts/admin.js', ['jquery'], BPVM_UVT::VERSION, TRUE);
+        wp_register_script($this->plugin_slug . '-admin', BPVM_UVT_ADDON_DIR . 'assets/scripts/admin.js', ['jquery'], BPVM_UVT::VERSION, true);
         wp_localize_script(
             $this->plugin_slug . '-admin',
             'uvtBpvmAdminData',
@@ -180,12 +180,14 @@ class BPVM_UVT_Admin
 
         // End Query Conditions.
 
-        $count_sql = $wpdb->prepare("SELECT COUNT({$bpvm_voting_data_table}.ID) AS total_count FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
+        $count_sql = $wpdb->prepare(
+            "SELECT COUNT({$bpvm_voting_data_table}.ID) AS total_count FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
                                                                WHERE 
                                                                {$bpvm_posts_data_table}.ID = {$bpvm_voting_data_table}.postid AND
                                                                 {$bpvm_voting_data_table}.user_id = %d 
                                                                " . $con_mv_post_filters . "
-                                                               " . $con_mv_date_range_filters . "", $vars);
+                                                               " . $con_mv_date_range_filters . "", $vars
+        );
 
 
         // Generate data from query.
@@ -204,12 +206,14 @@ class BPVM_UVT_Admin
 
         $order_query = " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
 
-        $sql = $wpdb->prepare("SELECT " . $bpvm_selected_columns . " FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
+        $sql = $wpdb->prepare(
+            "SELECT " . $bpvm_selected_columns . " FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
                    WHERE 
                    {$bpvm_posts_data_table}.ID = {$bpvm_voting_data_table}.postid AND
                    {$bpvm_voting_data_table}.user_id = %d 
                    " . $con_mv_post_filters . "
-                   " . $con_mv_date_range_filters . $order_query . "", $vars);
+                   " . $con_mv_date_range_filters . $order_query . "", $vars
+        );
 
         // Generate data from query.
 
@@ -239,14 +243,16 @@ class BPVM_UVT_Admin
 
                 // End of backend total vote counting.
 
-                array_push($bpvm_full_vote_data, [
+                array_push(
+                    $bpvm_full_vote_data, [
                     //                    ( $mv_vote_info_type == 2 ) ? '<input type="checkbox"  class="deleteRow" value="' . $row_id . '" data-post_id="' . $user_id . '" data-votes="' . $votes . '" data-vote_type="' . $vote_type . '" data-vote_date="' . $vote_date . '"/>' : '-',
                     "<a href='{$post_permalink}' target='_blank'>" . $post_title . "</a>",
                     $post_type,
                     $vote_date,
                     ($vote_type == 2) ? esc_html__("Dislike", "bpvm_uvt") : esc_html__("Like", "bpvm_uvt"),
                     $votes
-                ]);
+                    ]
+                );
 
                 $i++;
 

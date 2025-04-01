@@ -11,7 +11,7 @@ class BPVM_UVT
     private function __construct()
     {
 
-        if (class_exists('BWL_Pro_Voting_Manager') && BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION >= BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION) {
+        if (class_exists('BPVMWP\\Init') && BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION >= BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION) {
 
             $this->uvt_create_custom_column();
 
@@ -40,7 +40,7 @@ class BPVM_UVT
 
     public function include_files()
     {
-        require_once(BPVM_UVT_PATH . 'includes/widgets/user-vote-tracker-widget.php');
+        include_once BPVM_UVT_PATH . 'includes/widgets/user-vote-tracker-widget.php';
     }
 
     public function uvt_create_custom_column()
@@ -229,7 +229,7 @@ class BPVM_UVT
 
 
         $post_type = ""; // WordPress Available Post Types.
-        $uvt_custom_date_range = FALSE; // Get Custom Date range status.
+        $uvt_custom_date_range = false; // Get Custom Date range status.
         $uvt_filter_start_date = ""; // Starting date of filter.
         $uvt_filter_end_date = ""; // Ending date of filter.
 
@@ -279,13 +279,15 @@ class BPVM_UVT
 
         // End Query Conditions.
 
-        $count_sql = $wpdb->prepare("SELECT COUNT({$bpvm_voting_data_table}.ID) AS total_count FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
+        $count_sql = $wpdb->prepare(
+            "SELECT COUNT({$bpvm_voting_data_table}.ID) AS total_count FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
                                                                WHERE 
                                                                {$bpvm_posts_data_table}.ID = {$bpvm_voting_data_table}.postid 
                                                                " . $con_mv_user_filters . "
                                                                " . $con_mv_post_filters . "
                                                                " . $con_votes_count_filters . "
-                                                               " . $con_mv_date_range_filters . "", $vars);
+                                                               " . $con_mv_date_range_filters . "", $vars
+        );
 
 
         // Generate data from query.
@@ -301,13 +303,15 @@ class BPVM_UVT
 
         $order_query = " ORDER BY vote_date_time   " . $order_type . "  LIMIT " . $start . " ," . $limit . "   ";
 
-        $sql = $wpdb->prepare("SELECT " . $bpvm_selected_columns . " FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
+        $sql = $wpdb->prepare(
+            "SELECT " . $bpvm_selected_columns . " FROM {$bpvm_voting_data_table}, {$bpvm_posts_data_table} 
                     WHERE 
                     {$bpvm_posts_data_table}.ID = {$bpvm_voting_data_table}.postid 
                     " . $con_mv_user_filters . "
                     " . $con_mv_post_filters . "
                     " . $con_votes_count_filters . "
-                    " . $con_mv_date_range_filters . $order_query . "", $vars);
+                    " . $con_mv_date_range_filters . $order_query . "", $vars
+        );
 
         // Generate data from query.
 
@@ -386,13 +390,15 @@ class BPVM_UVT
     public function cb_uvt_front($atts)
     {
 
-        $atts = shortcode_atts([
+        $atts = shortcode_atts(
+            [
             'filter' => 'all', // all, 1=liked, 2=disliked
             'limit' => 5,
             'pagination' => 1,
             'meta' => 0,
             'global_mode' => 0
-        ], $atts);
+            ], $atts
+        );
 
         extract($atts);
 
