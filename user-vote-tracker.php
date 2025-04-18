@@ -7,22 +7,27 @@
  * Version:          2.0.0
  * Author:           Mahbub Alam Khan
  * Author URI:     https://codecanyon.net/user/xenioushk
- * Requires at least: 6.0+
+ * WP Requires at least: 6.0+
  * Text Domain:   bpvm_uvt
  * Domain Path: /languages/
  *
- * @package   User Vote Tracker - Pro Voting Manager Addon
+ * @package   UVTADDON
  * @author    Mahbub Alam Khan
  * @license   GPL-2.0+
  * @link      https://codecanyon.net/user/xenioushk
  * @copyright 2025 BlueWindLab
  */
 
+namespace UVTADDON;
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-    die;
+// security check.
+defined( 'ABSPATH' ) || die( 'Unauthorized access' );
+
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
 }
+
+return;
 
 // Version Define For Parent Plugin And Addon.
 
