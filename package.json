@@ -1,6 +1,6 @@
 {
   "name": "user-vote-tracker",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,10 @@
     "start:hot": "wp-scripts start --hot",
     "plugin-zip": "wp-scripts plugin-zip",
     "make-pot": "wp i18n make-pot . languages/user-vote-tracker.pot --slug=user-vote-tracker --domain=bpvm_uvt --exclude=node_modules,src",
-    "make-json": "wp i18n make-json languages/ --no-purge"
+    "make-json": "wp i18n make-json languages/ --no-purge",
+    "lint:php": "vendor/bin/phpcs",
+    "lint:phpn": "vendor/bin/phpcs -n",
+    "lint:php:fix": "vendor/bin/phpcbf"
   },
   "author": "Mahbub Alam Khan <hkhan.cse@gmail.com> (https://bluewindlab.net/)",
   "license": "MIT",
