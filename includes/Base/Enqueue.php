@@ -1,10 +1,10 @@
 <?php
-namespace RECAPADDON\Base;
+namespace UVTADDON\Base;
 
 /**
  * Class for registering the plugin scripts and styles.
  *
- * @package RECAPADDON
+ * @package UVTADDON
  */
 class Enqueue {
 
@@ -21,17 +21,13 @@ class Enqueue {
 	public function __construct() {
 		// Frontend script slug.
 		// This is required to hook the loclization texts.
-		$this->frontend_script_slug = 'bpvm-recap-frontend';
+		$this->frontend_script_slug = 'bpvm-uvt-frontend';
 	}
 
 	/**
 	 * Register the plugin scripts and styles loading actions.
 	 */
 	public function register() {
-		// Check if the site key is empty.
-		if ( empty( trim( RECAPADDON_SITE_KEY ) ) ) {
-			return;
-		}
 
 		// Enqueue scripts and styles.
 		add_action( 'wp_enqueue_scripts', [ $this, 'get_the_styles' ] );
@@ -45,9 +41,9 @@ class Enqueue {
 
 		wp_enqueue_style(
             $this->frontend_script_slug,
-            RECAPADDON_PLUGIN_STYLES_ASSETS_DIR . 'frontend.css',
+            UVTADDON_PLUGIN_STYLES_ASSETS_DIR . 'frontend.css',
             [],
-            RECAPADDON_PLUGIN_VERSION
+            UVTADDON_PLUGIN_VERSION
 		);
 	}
 
@@ -57,12 +53,11 @@ class Enqueue {
 	public function get_the_scripts() {
 
 		// Register JS
-		wp_register_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', [], RECAPADDON_PLUGIN_VERSION, true );
 		wp_enqueue_script(
             $this->frontend_script_slug,
-            RECAPADDON_PLUGIN_SCRIPTS_ASSETS_DIR . 'frontend.js',
-            [ 'jquery','google-recaptcha' ],
-            RECAPADDON_PLUGIN_VERSION,
+            UVTADDON_PLUGIN_SCRIPTS_ASSETS_DIR . 'frontend.js',
+            [ 'jquery' ],
+            UVTADDON_PLUGIN_VERSION,
             true
 		);
 
@@ -77,14 +72,12 @@ class Enqueue {
 
 		// Localize scripts.
 		// Frontend.
-		// Access data: bpvmRecapData.version
+		// Access data: bpvmUvtData.version
 		wp_localize_script(
             $this->frontend_script_slug,
-            'bpvmRecapData',
+            'bpvmUvtData',
             [
-				'version'             => RECAPADDON_PLUGIN_VERSION,
-				'recap_time_status'   => empty( RECAPADDON_ENABLE_STATUS ) ? 0 : 1,
-				'recap_time_interval' => is_numeric( RECAPADDON_TIME_INTERVAL_STATUS ) ? RECAPADDON_TIME_INTERVAL_STATUS : 3600,
+				'version' => UVTADDON_PLUGIN_VERSION,
 			]
 		);
 	}

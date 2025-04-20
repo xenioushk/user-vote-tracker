@@ -1,11 +1,11 @@
 <?php
-namespace RECAPADDON\Controllers\PluginMeta;
+namespace UVTADDON\Controllers\PluginMeta;
 
 /**
  * Class displays options panel, addons, documentation links below the plugin information.
  *
  * @since: 1.1.0
- * @package RECAPADDON
+ * @package UVTADDON
  */
 class MetaInfo {
 
@@ -26,17 +26,22 @@ class MetaInfo {
      */
 	public function get_meta_links( $links, $file ) {
 
-		if ( strpos( $file, RECAPADDON_PLUGIN_ROOT_FILE ) !== false && is_plugin_active( $file ) ) {
+		if ( strpos( $file, UVTADDON_PLUGIN_ROOT_FILE ) !== false && is_plugin_active( $file ) ) {
 
 			// nt = 1 // new tab.
 			$additional_links = [
 				[
-					'title' => esc_html__( 'Options Panel', 'bpvm-recap' ),
-					'url'   => admin_url( 'admin.php?page=bwl-pvm_option_panel#bpvm_recaptcha_options' ), //phpcs:ignore
+					'title' => esc_html__( 'My Votes Report', 'bpvm_uvt' ),
+					'url'   => get_admin_url() . 'users.php?page=bpvm-my-votes',
 				],
 				[
-					'title' => esc_html__( 'Docs', 'bpvm-recap' ),
-					'url'   => 'https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/recap/index.html',
+					'title' => esc_html__( 'Docs', 'bpvm_uvt' ),
+					'url'   => 'https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/uvt/index.html',
+					'nt'    => 1,
+				],
+				[
+					'title' => esc_html__( 'Support', 'bpvm_uvt' ),
+					'url'   => 'https://codecanyon.net/item/bwl-pro-voting-manager/7616885/support',
 					'nt'    => 1,
 				],
 

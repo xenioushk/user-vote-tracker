@@ -26,7 +26,7 @@ class Init {
 		$service_classes = [
 			'helpers' => self::get_helper_classes(),
 			'base'    => self::get_base_classes(),
-			// 'meta'    => self::get_meta_classes(),
+			'meta'    => self::get_meta_classes(),
 			// 'actions' => self::get_action_classes(),
 			// 'filters'    => self::get_filter_classes(),
 			// 'shortcodes' => self::get_shortcodes_classes(),
@@ -80,11 +80,11 @@ class Init {
 	 */
 	private static function get_base_classes() {
 		$classes = [
-			// Base\Enqueue::class,
-			// Base\AdminEnqueue::class,
-			// Base\PluginUpdate::class,
+			Base\Enqueue::class,
+			Base\AdminEnqueue::class,
+			Base\PluginUpdate::class,
 			Base\Language::class,
-			// Base\AdminAjaxHandlers::class,
+			Base\AdminAjaxHandlers::class,
 
 		];
 		return $classes;

@@ -1,13 +1,13 @@
 <?php
 
-namespace RECAPADDON\Callbacks\AdminAjaxHandlers;
+namespace UVTADDON\Callbacks\AdminAjaxHandlers;
 
-use RECAPADDON\Traits\PluginInstallationTraits;
+use UVTADDON\Traits\PluginInstallationTraits;
 
 /**
  * Class for plugin installation callback.
  *
- * @package RECAPADDON
+ * @package UVTADDON
  */
 class PluginInstallationCb {
 
@@ -30,9 +30,9 @@ class PluginInstallationCb {
 
 		$api_url    = $this->bwl_api_url();
 		$site_url   = get_site_url();
-		$product_id = RECAPADDON_PRODUCT_ID;
+		$product_id = UVTADDON_PRODUCT_ID;
 		$ip         = $_SERVER['REMOTE_ADDR'];
-		$ver        = RECAPADDON_PLUGIN_VERSION;
+		$ver        = UVTADDON_PLUGIN_VERSION;
 		$requestUrl = $api_url . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip&ver=$ver";
 
 		$output = wp_remote_get( $requestUrl );
@@ -45,7 +45,7 @@ class PluginInstallationCb {
 
 			if ( isset( $output_decode['status'] ) && $output_decode['status'] != 0 ) {
 
-				update_option( RECAPADDON_PRODUCT_INSTALLATION_TAG, 1 ); // change the tag
+				update_option( UVTADDON_PRODUCT_INSTALLATION_TAG, 1 ); // change the tag
 
 				$data = [
 					'status' => $output_decode['status'],

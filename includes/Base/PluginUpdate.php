@@ -1,5 +1,5 @@
 <?php
-namespace RECAPADDON\Base;
+namespace UVTADDON\Base;
 
 use Xenioushk\BwlPluginApi\Api\PluginUpdate\WpAutoUpdater;
 
@@ -7,7 +7,7 @@ use Xenioushk\BwlPluginApi\Api\PluginUpdate\WpAutoUpdater;
  * Class for plugin update.
  *
  * @since: 1.1.0
- * @package RECAPADDON
+ * @package UVTADDON
  */
 class PluginUpdate {
 
@@ -22,6 +22,6 @@ class PluginUpdate {
      * Check for the plugin update.
      */
 	public function check_for_the_update() {
-		new WpAutoUpdater( RECAPADDON_PLUGIN_VERSION, RECAPADDON_PLUGIN_UPDATER_URL, RECAPADDON_PLUGIN_UPDATER_SLUG );
+		new WpAutoUpdater( UVTADDON_PLUGIN_VERSION, UVTADDON_PLUGIN_UPDATER_URL, UVTADDON_PLUGIN_UPDATER_SLUG );
 	}
 }

@@ -1,12 +1,12 @@
 <?php
-namespace RECAPADDON\Base;
+namespace UVTADDON\Base;
 
 use Xenioushk\BwlPluginApi\Api\AjaxHandlers\AjaxHandlersApi;
-use RECAPADDON\Callbacks\AdminAjaxHandlers\PluginInstallationCb;
+use UVTADDON\Callbacks\AdminAjaxHandlers\PluginInstallationCb;
 /**
  * Class for admin ajax handlers.
  *
- * @package RECAPADDON
+ * @package UVTADDON
  */
 class AdminAjaxHandlers {
 
@@ -22,7 +22,7 @@ class AdminAjaxHandlers {
 		// If do so, you need to change in js file too.
 		$ajax_requests = [
 			[
-				'tag'      => 'bpvm_recap_installation_counter',
+				'tag'      => 'uvt_bpvm_installation_counter',
 				'callback' => [ $plugin_installation_cb, 'save' ],
 			],
 		];

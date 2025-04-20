@@ -1,10 +1,10 @@
 <?php
-namespace RECAPADDON\Base;
+namespace UVTADDON\Base;
 
 /**
  * Class for registering the plugin admin scripts and styles.
  *
- * @package RECAPADDON
+ * @package UVTADDON
  */
 class AdminEnqueue {
 
@@ -21,7 +21,7 @@ class AdminEnqueue {
 	public function __construct() {
 		// Frontend script slug.
 		// This is required to hook the loclization texts.
-		$this->admin_script_slug = 'bpvm-recap-admin';
+		$this->admin_script_slug = 'bpvm-uvt-admin';
 	}
 
 	/**
@@ -38,9 +38,9 @@ class AdminEnqueue {
 
 				wp_enqueue_script(
 					$this->admin_script_slug,
-					RECAPADDON_PLUGIN_SCRIPTS_ASSETS_DIR . 'admin.js',
+					UVTADDON_PLUGIN_SCRIPTS_ASSETS_DIR . 'admin.js',
 					[ 'jquery' ],
-					RECAPADDON_PLUGIN_VERSION, true
+					UVTADDON_PLUGIN_VERSION, true
 				);
 
 				$this->get_the_localization_texts();
@@ -53,15 +53,15 @@ class AdminEnqueue {
 
 		// Localize scripts.
 		// Frontend.
-		// Access data: bkbTplAdminData.version
+		// Access data: uvtBpvmAdminData.version
 		wp_localize_script(
             $this->admin_script_slug,
-            'RecapAddonAdminData',
+            'uvtBpvmAdminData',
             [
-				'version'      => RECAPADDON_PLUGIN_VERSION,
+				'version'      => UVTADDON_PLUGIN_VERSION,
 				'ajaxurl'      => esc_url( admin_url( 'admin-ajax.php' ) ),
-				'product_id'   => RECAPADDON_PRODUCT_ID,
-				'installation' => get_option( RECAPADDON_PRODUCT_INSTALLATION_TAG ),
+				'product_id'   => UVTADDON_PRODUCT_ID,
+				'installation' => get_option( UVTADDON_PRODUCT_INSTALLATION_TAG ),
 			]
 		);
 	}

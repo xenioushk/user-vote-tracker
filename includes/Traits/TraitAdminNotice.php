@@ -1,5 +1,5 @@
 <?php
-namespace RECAPADDON\Traits;
+namespace UVTADDON\Traits;
 
 trait TraitAdminNotice {
 
