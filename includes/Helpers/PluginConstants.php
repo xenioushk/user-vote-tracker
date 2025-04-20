@@ -23,23 +23,22 @@ class PluginConstants {
 		self::$plugin_options = get_option( 'bwl_pvm_options' );
 	}
 
-		/**
-         * Get the relative path to the plugin root.
-         *
-         * @return string
-         * @example wp-content/plugins/<plugin-name>/
-         */
+	/**
+	 * Get the relative path to the plugin root.
+	 *
+	 * @return string
+	 * @example wp-content/plugins/<plugin-name>/
+	 */
 	public static function get_plugin_path(): string {
 		return dirname( dirname( __DIR__ ) ) . '/';
 	}
 
-
-    /**
-     * Get the plugin URL.
-     *
-     * @return string
-     * @example http://appealwp.local/wp-content/plugins/<plugin-name>/
-     */
+	/**
+	 * Get the plugin URL.
+	 *
+	 * @return string
+	 * @example http://appealwp.local/wp-content/plugins/<plugin-name>/
+	 */
 	public static function get_plugin_url(): string {
 		return plugin_dir_url( self::get_plugin_path() . UVTADDON_PLUGIN_ROOT_FILE );
 	}
@@ -52,7 +51,6 @@ class PluginConstants {
 		self::set_paths_constants();
 		self::set_base_constants();
 		self::set_assets_constants();
-		self::set_recaptcha_constants();
 		self::set_updater_constants();
 		self::set_product_info_constants();
 	}
@@ -80,7 +78,6 @@ class PluginConstants {
 
 		define( 'UVTADDON_PLUGIN_FOLDER', 'user-vote-tracker' );
 		define( 'UVTADDON_PLUGIN_CURRENT_VERSION', UVTADDON_PLUGIN_VERSION );
-
 	}
 
 	/**
@@ -91,6 +88,8 @@ class PluginConstants {
 		define( 'UVTADDON_PLUGIN_DIR', self::get_plugin_path() );
 		define( 'UVTADDON_PLUGIN_FILE_PATH', UVTADDON_PLUGIN_DIR );
 		define( 'UVTADDON_PLUGIN_URL', self::get_plugin_url() );
+		define( 'UVTADDON_CONTROLLER_DIR', UVTADDON_PLUGIN_DIR . 'includes/Controllers/' );
+		define( 'UVTADDON_VIEWS_DIR', UVTADDON_PLUGIN_DIR . 'includes/Views/' );
 	}
 
 	/**
@@ -100,15 +99,6 @@ class PluginConstants {
 		define( 'UVTADDON_PLUGIN_STYLES_ASSETS_DIR', UVTADDON_PLUGIN_URL . 'assets/styles/' );
 		define( 'UVTADDON_PLUGIN_SCRIPTS_ASSETS_DIR', UVTADDON_PLUGIN_URL . 'assets/scripts/' );
 		define( 'UVTADDON_PLUGIN_LIBS_DIR', UVTADDON_PLUGIN_URL . 'libs/' );
-	}
-
-	/**
-	 * Set the recaptcha constants.
-	 */
-	private static function set_recaptcha_constants() {
-		define( 'UVTADDON_SITE_KEY', self::$plugin_options['bpvm_recaptcha_site_key'] ?? '' );
-		define( 'UVTADDON_ENABLE_STATUS', self::$plugin_options['bpvm_recaptcha_conditinal_fields']['enabled'] ?? [] );
-		define( 'UVTADDON_TIME_INTERVAL_STATUS', self::$plugin_options['bpvm_recaptcha_conditinal_fields']['bpvm_recaptcha_interval'] ?? 3600 );
 	}
 
 	/**

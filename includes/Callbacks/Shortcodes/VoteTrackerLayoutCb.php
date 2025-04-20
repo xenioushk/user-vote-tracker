@@ -1,5 +1,4 @@
 <?php
-
 namespace UVTADDON\Callbacks\Shortcodes;
 
 use UVTADDON\Helpers\UvtHelpers;
@@ -35,7 +34,7 @@ class VoteTrackerLayoutCb {
 
 		extract( $atts ); // phpcs:ignore
 
-		$uvt_vote_data = UvtHelpers::uvt_get_data( 1, $filter, $limit, $pagination, $meta, $global_mode ); // 1= start id.
+		$uvt_vote_data = UvtHelpers::uvt_get_data( 1, $filter, $limit, $pagination, $meta, $global_mode );
 
 		$uvt_front_output = "<ul class='uvt_data_table'>" . $uvt_vote_data . '</ul>';
 

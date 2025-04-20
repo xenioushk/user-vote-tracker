@@ -1,5 +1,4 @@
 <?php
-
 namespace UVTADDON\Callbacks\AdminAjaxHandlers;
 
 use UVTADDON\Traits\PluginInstallationTraits;

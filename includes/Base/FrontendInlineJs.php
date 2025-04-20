@@ -1,11 +1,10 @@
 <?php
-
-namespace RECAPADDON\Base;
+namespace UVTADDON\Base;
 
 /**
  * Class for plucin frontend inline js.
  *
- * @package RECAPADDON
+ * @package UVTADDON
  * @since: 1.1.0
  * @auther: Mahbub Alam Khan
  */

@@ -90,33 +90,4 @@ function init_recap_addon() {
 }
 
 add_action( 'init', __NAMESPACE__ . '\\init_recap_addon' );
-
-return;
-
-// Version Define For Parent Plugin And Addon.
-
-define( 'BPVM_UVT_PARENT_PLUGIN_INSTALLED_VERSION', get_option( 'bwl_pvm_plugin_version' ) );
-define( 'BPVM_UVT_ADDON_PARENT_PLUGIN_TITLE', 'BWL Pro Voting Manager' );
-define( 'BPVM_UVT_ADDON_TITLE', 'User Vote Tracker Addon' );
-define( 'BPVM_UVT_PARENT_PLUGIN_REQUIRED_VERSION', '1.3.0' ); // change plugin required version in here.
-define( 'BPVM_UVT_ADDON_CURRENT_VERSION', '1.0.9' ); // change plugin current version in here.
-
-define( 'BPVM_UVT_ADDON_ROOT_FILE', 'user-vote-tracker.php' ); // use for the meta info.
-
-define( 'BPVM_UVT_PATH', plugin_dir_path( __FILE__ ) );
-define( 'BPVM_UVT_ADDON_DIR', plugins_url() . '/user-vote-tracker/' );
-define( 'BPVM_UVT_ADDON_UPDATER_SLUG', plugin_basename( __FILE__ ) );
-define( 'BPVM_UVT_CC_ID', '18480330' );
-define( 'BPVM_UVT_INSTALLATION_TAG', 'uvt_bpvm_installation_' . str_replace( '.', '_', BPVM_UVT_ADDON_CURRENT_VERSION ) );
-
-require_once plugin_dir_path( __FILE__ ) . 'includes/public/class-uvt-addon.php';
-
-register_activation_hook( __FILE__, [ 'BPVM_UVT', 'activate' ] );
-register_deactivation_hook( __FILE__, [ 'BPVM_UVT', 'deactivate' ] );
-
-add_action( 'plugins_loaded', [ 'BPVM_UVT', 'get_instance' ] );
-
-if ( is_admin() ) {
-    include_once plugin_dir_path( __FILE__ ) . 'includes/admin/class-uvt-addon-admin.php';
-    add_action( 'plugins_loaded', [ 'BPVM_UVT_Admin', 'get_instance' ] );
-}
+require_once __DIR__ . '/includes/Widgets/index.php';

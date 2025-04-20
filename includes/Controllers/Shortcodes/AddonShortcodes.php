@@ -1,5 +1,4 @@
 <?php
-
 namespace UVTADDON\Controllers\Shortcodes;
 
 use Xenioushk\BwlPluginApi\Api\Shortcodes\ShortcodesApi;

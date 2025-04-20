@@ -1,5 +1,4 @@
 <?php
-
 namespace UVTADDON\Base;
 
 use Xenioushk\BwlPluginApi\Api\AjaxHandlers\AjaxHandlersApi;

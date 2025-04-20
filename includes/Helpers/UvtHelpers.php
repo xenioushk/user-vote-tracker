@@ -207,9 +207,9 @@ class UvtHelpers {
 
 		wp_reset_postdata();
 
-		if ( ! in_array( 'ob_gzhandler', ob_list_handlers() ) ) {
-				ob_start( 'ob_gzhandler' );
-		}
+		// if ( ! in_array( 'ob_gzhandler', ob_list_handlers() ) ) {
+		// ob_start( 'ob_gzhandler' );
+		// }
 
 		return $uvt_output . $uvt_pagination_link;
 	}

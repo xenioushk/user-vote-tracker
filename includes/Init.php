@@ -1,9 +1,8 @@
 <?php
-
 namespace UVTADDON;
 
 /**
- * Class for Initialize plugin required searvices.
+ * Class for Initialize plugin required services.
  *
  * @since: 1.1.0
  * @package UVTADDON
@@ -24,13 +23,11 @@ class Init {
 		$services = [];
 
 		$service_classes = [
-			'helpers' => self::get_helper_classes(),
-			'base'    => self::get_base_classes(),
-			'meta'    => self::get_meta_classes(),
-			// 'actions' => self::get_action_classes(),
-			// 'filters'    => self::get_filter_classes(),
-			// 'shortcodes' => self::get_shortcodes_classes(),
-			// 'notices' => self::get_notices_classes(),
+			'helpers'    => self::get_helper_classes(),
+			'base'       => self::get_base_classes(),
+			'meta'       => self::get_meta_classes(),
+			'actions'    => self::get_action_classes(),
+			'shortcodes' => self::get_shortcodes_classes(),
 		];
 
 		foreach ( $service_classes as $service_class ) {
@@ -86,7 +83,6 @@ class Init {
 			Base\Language::class,
 			Base\FrontendAjaxHandlers::class,
 			Base\AdminAjaxHandlers::class,
-
 		];
 		return $classes;
 	}
@@ -116,7 +112,6 @@ class Init {
 		return $classes;
 	}
 
-
 	/**
 	 * Get Action classes.
 	 *
@@ -125,23 +120,7 @@ class Init {
 	private static function get_action_classes() {
 
 		$classes = [
-			Controllers\Actions\RecaptchaOverlay::class,
-		];
-		return $classes;
-	}
-
-	/**
-	 * Get Filter classes.
-	 *
-	 * @return array
-	 */
-	private static function get_filter_classes() {
-
-		$classes = [
-			Controllers\Filters\Templates\Pagination::class,
-			Controllers\Filters\Templates\Category::class,
-			Controllers\Filters\Templates\Tag::class,
-			Controllers\Filters\Templates\Single::class,
+			Controllers\Actions\UvtAdminMenu::class,
 		];
 		return $classes;
 	}
@@ -154,18 +133,6 @@ class Init {
 	private static function get_shortcodes_classes() {
 		$classes = [
 			Controllers\Shortcodes\AddonShortcodes::class,
-		];
-		return $classes;
-	}
-
-	/**
-	 * Get Notices classes.
-	 *
-	 * @return array
-	 */
-	private static function get_notices_classes() {
-		$classes = [
-			Controllers\Notices\PluginNotices::class,
 		];
 		return $classes;
 	}

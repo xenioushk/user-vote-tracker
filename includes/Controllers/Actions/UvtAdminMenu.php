@@ -1,16 +1,16 @@
 <?php
-namespace RECAPADDON\Controllers\Actions;
+namespace UVTADDON\Controllers\Actions;
 
 use Xenioushk\BwlPluginApi\Api\Actions\ActionsApi;
-use RECAPADDON\Callbacks\Actions\RecaptchaOverlayCb;
+use UVTADDON\Callbacks\Actions\UvtAdminMenuCb;
 
 /**
  * Class for registering the recaptcha overlay actions.
  *
  * @since: 1.1.0
- * @package RECAPADDON
+ * @package UVTADDON
  */
-class RecaptchaOverlay {
+class UvtAdminMenu {
 
     /**
 	 * Register filters.
@@ -21,12 +21,12 @@ class RecaptchaOverlay {
         $actions_api = new ActionsApi();
 
         // Initialize callbacks.
-        $recaptcha_overlay_cb = new RecaptchaOverlayCb();
+        $uvt_admin_menu_cb = new UvtAdminMenuCb();
 
         $actions = [
             [
-                'tag'      => 'wp_footer',
-                'callback' => [ $recaptcha_overlay_cb, 'get_the_layout' ],
+                'tag'      => 'admin_menu',
+                'callback' => [ $uvt_admin_menu_cb, 'get_the_menu' ],
             ],
 
         ];
