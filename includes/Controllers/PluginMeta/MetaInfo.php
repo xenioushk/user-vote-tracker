@@ -36,7 +36,7 @@ class MetaInfo {
 				],
 				[
 					'title' => esc_html__( 'Docs', 'bpvm_uvt' ),
-					'url'   => 'https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/uvt/index.html',
+					'url'   => 'https://xenioushk.github.io/docs-plugins-addon/bpvm-addon/uvta/index.html',
 					'nt'    => 1,
 				],
 				[

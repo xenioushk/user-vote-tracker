@@ -84,6 +84,7 @@ class Init {
 			Base\AdminEnqueue::class,
 			Base\PluginUpdate::class,
 			Base\Language::class,
+			Base\FrontendAjaxHandlers::class,
 			Base\AdminAjaxHandlers::class,
 
 		];
@@ -98,7 +99,7 @@ class Init {
 	private static function get_helper_classes() {
 		$classes = [
 			Helpers\PluginConstants::class,
-			// Helpers\BkbTplHelpers::class,
+			Helpers\UvtHelpers::class,
 		];
 		return $classes;
 	}
