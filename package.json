@@ -1,7 +1,7 @@
 {
   "name": "user-vote-tracker",
-  "version": "2.0.0",
-  "description": "",
+  "version": "2.0.2",
+  "description": "This addon performs the task of diligently monitoring and counting votes on each post.",
   "main": "index.js",
   "scripts": {
     "build": "wp-scripts build",
